@@ -14,7 +14,12 @@ output = open("find.txt", "w")
 search = input("Enter what to search:".strip())
 
 # Read the file
+count = 0
 for line in sysFile:
     line = line.rstrip()
-    if re.search(search, line):
+    if re.search(search, line, re.IGNORECASE):
         output.write(line)
+        output.write("\n")
+        count = count + 1
+
+print("Lines found: ", count)
